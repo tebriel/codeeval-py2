@@ -1,0 +1,7 @@
+#! /usr/bin/python
+import sys
+
+lines = None
+with open(sys.argv[1], 'r') as f:
+    for line in f.readlines():
+        print line.rstrip('\n').lower()

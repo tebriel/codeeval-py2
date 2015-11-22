@@ -1,0 +1,27 @@
+#! /usr/bin/python
+import sys
+
+
+def make_binary(num):
+    current = num
+    result = []
+    while current > 0:
+        remainder = current % 2
+        current -= remainder
+        current /= 2
+        result.insert(0, remainder)
+
+    return result
+
+lines = None
+with open(sys.argv[1], 'r') as f:
+    lines = f.readlines()
+
+output = []
+for line in lines:
+    nums = line.rstrip('\n').split(',')
+    n = int(nums[0])
+    p1 = int(nums[1])
+    p2 = int(nums[2])
+    binary = make_binary(n)
+    print str(binary[-p1] == binary[-p2]).lower()

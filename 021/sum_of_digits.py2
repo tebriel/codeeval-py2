@@ -1,0 +1,32 @@
+#! /usr/bin/python
+"""
+Sum up the digits in a line
+>>> sum_digits("123")
+6
+>>> sum_digits("23")
+5
+>>> sum_digits("496")
+19
+"""
+import sys
+
+
+def sum_digits(line):
+
+    if line == '':
+        return
+    total = 0
+    for char in line:
+        total += int(char)
+
+    print total
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        lines = None
+        with open(sys.argv[1], 'r') as f:
+            for line in f.readlines():
+                sum_digits(line.rstrip('\n'))
+    else:
+        import doctest
+        doctest.testmod()

@@ -1,0 +1,16 @@
+#! /usr/bin/python
+import sys
+
+lines = None
+with open(sys.argv[1], 'r') as f:
+    lines = f.readlines()
+
+output = []
+for line in lines:
+    line = line.rstrip('\n')
+    if line == '':
+        continue
+    words = line.split(' ')
+    output.append(" ".join(words[::-1]))
+
+print "\n".join(output)

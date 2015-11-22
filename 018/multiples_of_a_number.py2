@@ -1,0 +1,21 @@
+#! /usr/bin/python
+import sys
+
+lines = None
+with open(sys.argv[1], 'r') as f:
+    lines = f.readlines()
+
+output = []
+for line in lines:
+    line = line.rstrip('\n')
+    if line == '':
+        continue
+    numbers = line.split(',')
+    x = int(numbers[0])
+    multiple = n = int(numbers[1])
+    multiplier = 1
+    while multiple < x:
+        multiplier += 1
+        multiple = n * multiplier
+
+    print multiple

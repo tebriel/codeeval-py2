@@ -1,0 +1,20 @@
+#!/usr/bin/python
+
+from math import sqrt, ceil
+
+# We know that 2 is a special case
+found_primes = 1
+total = 2
+current = 2
+
+while found_primes < 1000:
+    current += 1
+    divisors = xrange(2, int(ceil(sqrt(current)))+1)
+    for divisor in divisors:
+        if current % divisor == 0:
+            break
+        if divisor == divisors[-1]:
+            found_primes += 1
+            total += current
+
+print total

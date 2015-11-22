@@ -1,0 +1,26 @@
+#! /usr/bin/python
+"""
+Uniques a line of csv text
+>>> unique("1,1,1,2,2,3,3,4,4")
+'1,2,3,4'
+>>> unique("2,3,4,5,5")
+'2,3,4,5'
+>>> unique("7,8,8,9,10,10,11,11,11,12,12,13")
+'7,8,9,10,11,12,13'
+"""
+import sys
+
+
+def unique(line):
+    nums = sorted(set([int(num) for num in line.split(',')]))
+    return ",".join([str(num) for num in nums])
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        lines = None
+        with open(sys.argv[1], 'r') as f:
+            for line in f.readlines():
+                print unique(line.rstrip('\n'))
+    else:
+        import doctest
+        doctest.testmod()

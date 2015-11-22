@@ -1,0 +1,17 @@
+#!/usr/bin/python
+
+import sys
+from math import sqrt, ceil
+
+# Use xrange for a generator to save on memory
+for number in xrange(999, 1, -1):
+    divisors = xrange(2, int(ceil(sqrt(number)))+1)
+    for divisor in divisors:
+        # print divisor, number, number % divisor
+        if number % divisor == 0:
+            # print number, number % divisor
+            break
+        if divisor == divisors[-1]:
+            if str(number) == str(number)[::-1]:
+                print "%d" % (number)
+                sys.exit(0)
